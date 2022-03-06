@@ -1,0 +1,5 @@
+#ignores Coverage files from SimpleCov
+coverage
+
+#ignores Yagni overflow folder
+yagni.md
