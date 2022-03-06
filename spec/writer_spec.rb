@@ -12,7 +12,9 @@ RSpec.describe Writer do
     end
 
     it 'has a library of braille and english' do
-      expect(@writer.dictionary).to eq("a" => ["", "", "", "", "", ""])
+      # binding.pry
+      expect(@writer.dictionary["a"]).to eq(["0", ".", ".", ".", ".", "."])
+      expect(@writer.dictionary[" "]).to eq([".", ".", ".", ".", ".", "."])
     end
   end
 end
