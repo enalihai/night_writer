@@ -10,5 +10,9 @@ RSpec.describe Writer do
     it 'exists' do
       expect(@writer).to be_a(Writer)
     end
+
+    it 'has a library of braille and english' do
+      expect(@writer.dictionary).to eq("a" => ["", "", "", "", "", ""])
+    end
   end
 end
