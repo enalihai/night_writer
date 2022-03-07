@@ -3,3 +3,10 @@ coverage
 
 #YAGNI file for overflow code
 yagni
+
+#Braille.txt will change constantly, no commits neeeded
+braille.txt
+
+#Mock / Stubs Files that change
+mock_message.txt
+mock_stub_braille.txt
