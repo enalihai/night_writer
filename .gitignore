@@ -6,3 +6,7 @@ yagni
 
 #Braille.txt will change constantly, no commits neeeded
 braille.txt
+
+#Mock / Stubs Files that change
+mock_message.txt
+mock_stub_braille.txt
