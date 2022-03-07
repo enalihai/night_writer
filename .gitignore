@@ -10,3 +10,5 @@ braille.txt
 #Mock / Stubs Files that change
 mock_message.txt
 mock_stub_braille.txt
+test.txt
+test2.txt
