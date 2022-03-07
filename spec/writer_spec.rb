@@ -29,5 +29,9 @@ RSpec.describe Writer do
 
       expect(@writer.braille_convert(@stub)).to eq([["0.", "00", "0.", "0.", "00"], ["..", "..", ".0", "0.", ".0"], ["..", "..", "..", "..", ".."]])
     end
+
+    xit 'can delete unwanted characters' do
+      expect(@writer.remove_unwanted_characters(@stub)).to eq()
+    end
   end
 end
