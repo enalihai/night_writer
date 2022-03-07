@@ -7,7 +7,7 @@ RSpec.describe Writer do
     @writer = Writer.new
     @stub = File.read('mock_message.txt').delete("\n")
   end
-
+# binding.pry
   describe '#writer' do
     it 'exists' do
 
@@ -34,5 +34,11 @@ RSpec.describe Writer do
       # binding.pry
       expect(@writer.write_braille(@stub)).to eq(["0.000.0.00", ".....00..0", ".........."])
     end
+
+    it 'can read and translate english to braille' do
+
+      expect(@writer.file_converter(@stub)).to eq(["0.000.0.00", ".....00..0", ".........."])
+    end
+
   end
 end
