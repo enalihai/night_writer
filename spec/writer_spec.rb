@@ -30,8 +30,9 @@ RSpec.describe Writer do
       expect(@writer.braille_convert(@stub)).to eq([["0.", "00", "0.", "0.", "00"], ["..", "..", ".0", "0.", ".0"], ["..", "..", "..", "..", ".."]])
     end
 
-    xit 'can delete unwanted characters' do
-      expect(@writer.remove_unwanted_characters(@stub)).to eq()
+    it 'can write the change the braille to write it' do
+      # binding.pry
+      expect(@writer.write_braille(@stub)).to eq(["0.000.0.00", ".....00..0", ".........."])
     end
   end
 end
