@@ -7,7 +7,7 @@ message_input = cli.read
 
 cli.close
 
-braille_txt = @writer.file_convert(message_input)
+braille_txt = @writer.file_convert(message_input).delete("\n")
 
 message_output = File.open(ARGV[1], "w")
 message_output.write(braille_txt)

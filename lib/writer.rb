@@ -40,6 +40,14 @@ class Writer
 
   def braille_convert(file)
     @split_chars = file.split(//)
-    @split_chars.map {|chars| dictionary[chars]}
+    @char_array = @split_chars.map {|chars| dictionary[chars]}
+    @line1 = []
+    @line2 = []
+    @line3 = []
+    @char_array.each {|line| @line1 << line.shift}
+    @char_array.each {|line| @line2 << line.shift}
+    @char_array.each {|line| @line3 << line.shift}
+    lines_array = [@line1, @line2, @line3]
+    p lines_array
   end
 end
