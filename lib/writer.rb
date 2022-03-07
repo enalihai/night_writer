@@ -1,9 +1,5 @@
 class Writer
-  attr_reader :dictionary,
-              :file_convert,
-              :braille_convert,
-              :split,
-              :lines
+  attr_reader :dictionary
 
   def initialize
     @dictionary = {
@@ -38,18 +34,30 @@ class Writer
   end
 
   def file_convert(file)
+    # binding.pry
+    # @popped_off = file.split(//).pop
     @split = file.split(//)
+    @split
   end
 
   def braille_convert(file)
+    # binding.pry
     file_convert(file)
     braille_letters = @split.map {|char| dictionary[char.to_s]}
     @lines = braille_letters.transpose
-    p @lines
   end
 
   def write_braille(file)
     braille_convert(file)
-    @lines.map{|line| line.join("")} 
+    @lines.map{|line| line.join("")}
+  end
+
+
+  def file_converter(file)
+    @split = file.split(//)
+    braille_letters = @split.map{|char| dictionary[char]}
+    braille_letters.delete(nil)
+    @lines = braille_letters.transpose
+    @lines.map{|line| line.join("")}
   end
 end
