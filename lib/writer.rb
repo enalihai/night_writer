@@ -37,4 +37,9 @@ class Writer
   def file_convert(file)
     file.split(//)
   end
+
+  def braille_convert(file)
+    @split_chars = file.split(//)
+    @split_chars.map {|chars| dictionary[chars]}
+  end
 end
