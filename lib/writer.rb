@@ -1,6 +1,7 @@
 class Writer
   attr_reader :dictionary,
-              :file_convert
+              :file_convert,
+              :braille_convert
 
   def initialize
     @dictionary = {
@@ -35,19 +36,37 @@ class Writer
   end
 
   def file_convert(file)
-    file.split(//)
+    @split = file.split(//)
   end
 
+  # def remove_unwanted_characters(file)
+  #   #method built to remove anything not from the alphabet or _
+  #   file.downcase!
+  #   binding.pry
+  #   file.each_char {|char| char.delete if char.!include?("abcdefghijklmnopqrstuvwxyz ")
+  #
+  # end
+
   def braille_convert(file)
-    @split_chars = file.split(//)
-    @char_array = @split_chars.map {|chars| dictionary[chars]}
-    @line1 = []
-    @line2 = []
-    @line3 = []
-    @char_array.each {|line| @line1 << line.shift}
-    @char_array.each {|line| @line2 << line.shift}
-    @char_array.each {|line| @line3 << line.shift}
-    lines_array = [@line1, @line2, @line3]
-    p lines_array
+    file_convert(file)
+    braille_letters = @split.map {|chars| dictionary[chars.to_s]}
+      # braille_letters.transpose
+    @convert_line1 = braille_letters.collect {|line1| line1[0]}
+    @convert_line2 = braille_letters.collect {|line2| line2[1]}
+    @convert_line3 = braille_letters.collect {|line3| line3[2]}
+    # @line1 = []
+    # @line2 = []
+    # @line3 = []
+    # @split_chars.each {|line| line}
+    # binding.pry
+    # @split_chars.each {|line| @line2 << line.shift}
+    # @split_chars.each {|line| @line3 << line.shift}
+    @lines_array = [@convert_line1, @convert_line2, @convert_line3]
+    p @lines_array
+    # p @converted_letters
+  end
+
+  def write_braille
+    #this method will take the first element of each array and put it into line1, then it will remove the first element. then it will repeat until there are no more elements.
   end
 end
