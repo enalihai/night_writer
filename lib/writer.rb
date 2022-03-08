@@ -1,8 +1,11 @@
-class Writer
+require_relative 'tools.rb'
+
+class Writer < Tools
   attr_reader :dictionary
 
   def initialize
-    @dictionary = {
+    @dictionary =
+    {
     "a" => ["0.", "..", ".."],
     "b" => ["0.", "0.", ".."],
     "c" => ["00", "..", ".."],
@@ -31,25 +34,6 @@ class Writer
     "z" => ["0.", ".0", "00"],
     " " => ["..", "..", ".."]
       }
-  end
-
-  def file_convert(file)
-    # binding.pry
-    # @popped_off = file.split(//).pop
-    @split = file.split(//)
-    @split
-  end
-
-  def braille_convert(file)
-    # binding.pry
-    file_convert(file)
-    braille_letters = @split.map {|char| dictionary[char.to_s]}
-    @lines = braille_letters.transpose
-  end
-
-  def write_braille(file)
-    braille_convert(file)
-    @lines.map{|line| line.join("")}
   end
 
   def file_converter(file)
