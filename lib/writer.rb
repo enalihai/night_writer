@@ -58,6 +58,10 @@ class Writer
     braille_letters.delete(nil)
     @lines = braille_letters.transpose
     @line_array = @lines.map{|line| line.join("")}
-    output = @line_array[0]+"\n"+@line_array[1]+"\n"+@line_array[2]+"\n"
+    if @line_array[0].length <= 80
+      @line_array[0][0,80]+"\n"+@line_array[1][0,80]+"\n"+@line_array[2][0,80]+"\n"+"\n"
+    elsif @line_array[0].length > 80
+      @line_array[0][0,80]+"\n"+@line_array[1][0,80]+"\n"+@line_array[2][0,80]+"\n"+"\n"+@line_array[0][80,160]+"\n"+@line_array[1][80,160]+"\n"+@line_array[2][80,160]
+    end
   end
 end
