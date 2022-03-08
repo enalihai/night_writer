@@ -52,12 +52,12 @@ class Writer
     @lines.map{|line| line.join("")}
   end
 
-
   def file_converter(file)
     @split = file.split(//)
     braille_letters = @split.map{|char| dictionary[char]}
     braille_letters.delete(nil)
     @lines = braille_letters.transpose
-    @lines.map{|line| line.join("")}
+    @line_array = @lines.map{|line| line.join("")}
+    output = @line_array[0]+"\n"+@line_array[1]+"\n"+@line_array[2]+"\n"
   end
 end
