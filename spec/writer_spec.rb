@@ -37,8 +37,12 @@ RSpec.describe Writer do
 
     it 'can read and translate english to braille' do
 
-      expect(@writer.file_converter(@stub)).to eq(["0.000.0.00", ".....00..0", ".........."])
+      expect(@writer.file_converter(@stub)).to eq("0.000.0.00\n.....00..0\n..........\n")
     end
 
+    xit 'can select different parts of the array' do
+
+      expect(@writer.file_writer(@stub)).to eq("0.000.0.00")
+    end
   end
 end
