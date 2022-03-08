@@ -1,11 +1,9 @@
-require_relative 'tools.rb'
+require_relative "tools.rb"
+require 'pry'
 
-class Writer < Tools
-  attr_reader :dictionary
-
+class Reader < Tools
   def initialize
-    @dictionary =
-    {
+    @dictionary = {
     "a" => ["0.", "..", ".."],
     "b" => ["0.", "0.", ".."],
     "c" => ["00", "..", ".."],
@@ -36,16 +34,9 @@ class Writer < Tools
       }
   end
 
-  def file_converter(file)
-    @split = file.split(//)
-    braille_letters = @split.map{|char| dictionary[char]}
-    braille_letters.delete(nil)
-    @lines = braille_letters.transpose
-    @line_array = @lines.map{|line| line.join("")}
-    if @line_array[0].length <= 80
-      @line_array[0][0,80]+"\n"+@line_array[1][0,80]+"\n"+@line_array[2][0,80]+"\n"+"\n"
-    elsif @line_array[0].length > 80
-      @line_array[0][0,80]+"\n"+@line_array[1][0,80]+"\n"+@line_array[2][0,80]+"\n"+"\n"+@line_array[0][80,160]+"\n"+@line_array[1][80,160]+"\n"+@line_array[2][80,160]
-    end
+  def braille_converter(file)
+    @compress = file.split(//)
+    # binding.pry
+    #you now have an array of all the elements in the braille file, you need to convert it  back to 3  arrays, then transpose that array  so the letters go back to one element with 3 arrays
   end
 end
