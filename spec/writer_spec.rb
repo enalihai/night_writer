@@ -22,6 +22,10 @@ RSpec.describe Writer do
       expect(@writer.dictionary[" "]).to eq(["..", "..", ".."])
     end
 
+    it 'can check' do
+
+      expect(@writer.dictionary['=']).to eq(nil)
+    end
     # it 'can convert a file to its characters' do
     #
     #   expect(@writer.file_convert(@stub)).to eq(["a", "c", "e", "b", "d"])
