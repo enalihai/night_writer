@@ -22,20 +22,20 @@ RSpec.describe Writer do
       expect(@writer.dictionary[" "]).to eq(["..", "..", ".."])
     end
 
-    it 'can convert a file to its characters' do
-
-      expect(@writer.file_convert(@stub)).to eq(["a", "c", "e", "b", "d"])
-    end
-
-    it 'can convert the new file to braille elements' do
-
-      expect(@writer.braille_convert(@stub)).to eq([["0.", "00", "0.", "0.", "00"], ["..", "..", ".0", "0.", ".0"], ["..", "..", "..", "..", ".."]])
-    end
-
-    it 'can write the change the braille to write it' do
-      # binding.pry
-      expect(@writer.write_braille(@stub)).to eq(["0.000.0.00", ".....00..0", ".........."])
-    end
+    # it 'can convert a file to its characters' do
+    #
+    #   expect(@writer.file_convert(@stub)).to eq(["a", "c", "e", "b", "d"])
+    # end
+    #
+    # it 'can convert the new file to braille elements' do
+    #
+    #   expect(@writer.braille_convert(@stub)).to eq([["0.", "00", "0.", "0.", "00"], ["..", "..", ".0", "0.", ".0"], ["..", "..", "..", "..", ".."]])
+    # end
+    #
+    # it 'can write the change the braille to write it' do
+    #   # binding.pry
+    #   expect(@writer.write_braille(@stub)).to eq(["0.000.0.00", ".....00..0", ".........."])
+    # end
 
     it 'can read and translate english to braille' do
 
