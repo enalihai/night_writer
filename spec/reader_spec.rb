@@ -15,7 +15,7 @@ RSpec.describe Reader do
 
     it 'can convert braille to english' do
       # binding.pry
-      expect(@reader.braille_converter(@stub)).to eq(["0", ".", "0", "0", "0", ".", "0", ".", "0", "0", "\n", ".", ".", ".", ".", ".", "0", "0", ".", ".", "0", "\n", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "\n", "\n"])
+      expect(@reader.braille_converter(@stub)).to eq([["0", ".", "0"], ["0", "0", "."], ["0", ".", "0"], ["0", ".", "."], [".", ".", "."], ["0", "0", "."], [".", "0", "."], [".", ".", "."], [".", ".", "."], [".", ".", "."]])
     end
   end
 end
