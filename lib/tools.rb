@@ -33,5 +33,3 @@ class Tools
       }
   end
 end
-# tools = Tools.new()
-# tools.dictionary_place_holder
