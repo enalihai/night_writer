@@ -35,13 +35,16 @@ class Reader < Tools
   end
 
   def braille_converter(file)
-    @compress = file.split(//)
-    @file_to_array = @compress.map{|char| char if char != "\n"}
-    @braille_array = @file_to_array.compact
-    @total_chars = @braille_array.length / 6
-    @braille_array.slice(@total_chars * 2)
-binding.pry
+    @compress = file.split(/\n/)
+    # @file_to_array = @compress.map{|char| char if char != "\n"}
+    @braille_array = @compress.map{|char|char.scan(/.{1,2}/)}
+    @braille_array = @braille_array.reject{|array| array.empty?}
+    @braille_letters_array = @braille_array.transpose
+    @dictionary1 = @dictionary.invert
+    @braille_letters_array.map{|letter| @dictionary1[letter]}.join
 
-    p ["acebd"]
+    # @total_chars = @braille_array.length / 6
+# binding.pry
+#     ["acebd"]
   end
 end
