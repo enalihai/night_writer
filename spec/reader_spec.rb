@@ -21,7 +21,7 @@ RSpec.describe Reader do
 
     it 'can convert braille to english' do
       # binding.pry
-      expect(@reader.braille_converter(@stub)).to eq(["acebd"])
+      expect(@reader.braille_converter(@stub)).to eq("acebd")
     end
 
     it 'can check for nil' do
