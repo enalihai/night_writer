@@ -35,12 +35,16 @@ class Reader < Tools
   end
 
   def braille_converter(file)
-    @compress = file.split(//)
-    @file_to_array = @compress.map{|char| char if char != "\n"}
-    @braille_array = @file_to_array.compact
-    @divided_braille_array = @braille_array.each_slice(3).to_a
-  
+    @compress = file.split(/\n/)
+    # @file_to_array = @compress.map{|char| char if char != "\n"}
+    @braille_array = @compress.map{|char|char.scan(/.{1,2}/)}
+    @braille_array = @braille_array.reject{|array| array.empty?}
+    @braille_letters_array = @braille_array.transpose
+    @dictionary1 = @dictionary.invert
+    @braille_letters_array.map{|letter| @dictionary1[letter]}.join
 
-    #you now have an array of all the elements in the braille file, you need to convert it  back to 3  arrays, then transpose that array  so the letters go back to one element with 3 arrays
+    # @total_chars = @braille_array.length / 6
+# binding.pry
+#     ["acebd"]
   end
 end

@@ -22,9 +22,22 @@ RSpec.describe Writer do
       expect(@writer.dictionary[" "]).to eq(["..", "..", ".."])
     end
 
-    # it 'can convert a file to its characters' do
+    it 'can check' do
+
+      expect(@writer.dictionary['=']).to eq(nil)
+    end
+
+    it 'can map a file' do
+      file = "acebd"
+      @split = file.split(//)
+
+      expect(@split).to eq(["a", "c", "e", "b", "d"])
+    end
+
+    # it 'can give the braille components of letters' do
     #
-    #   expect(@writer.file_convert(@stub)).to eq(["a", "c", "e", "b", "d"])
+    #
+    #   expect(braille_letters).to eq([["0.", "..", ".."], ["00", "..", ".."], ["0.", ".0", ".."], ["0.", "0.", ".."], ["00", ".0", ".."]])
     # end
     #
     # it 'can convert the new file to braille elements' do
@@ -40,11 +53,6 @@ RSpec.describe Writer do
     it 'can read and translate english to braille' do
 
       expect(@writer.file_converter(@stub)).to eq("0.000.0.00\n.....00..0\n..........\n\n")
-    end
-
-    it 'can print the rest of the braille' do
-
-      expect(@writer.file_converter(@full_file)).to eq("0...0.00000.00000..0.00...000.0.0..0...00..00000.0..0.00..0.0.0.000..00000...00.\n.0.........0..0.0.0.0.00..0000.0..00..00000..0000...0..0..00.0....000..000..00.0\n..........0.0.0.0...0.......0.....0...0.....0...0.....00..0...........0.....0.0.\n\n.00.0.00...00.0....00...000.0.0.00..0.0.000.000.\n00..00.0..0000.0..00.0.....0..0..0..0..0...0...0\n.0..0......0..0....0......0.000...........0.0...")
     end
   end
 end
