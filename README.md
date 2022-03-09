@@ -36,7 +36,11 @@ braille.txt      : holds the braille message
 
 ___Known Bugs/Errors___
 
-no known bugs, feel free to reach out if you find one!
+1. If message.txt is more than 40 characters,
+   it has trouble translating from  braille to english
+   error occurs inside transpose call on line 42 of reader.rb
+no other known errors!
+feel free to reach out if you find one!
 email: lpluke5@gmail.com
 please make the subject "Night Writer Bug Found"
 
