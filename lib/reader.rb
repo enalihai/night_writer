@@ -38,9 +38,10 @@ class Reader < Tools
     @compress = file.split(//)
     @file_to_array = @compress.map{|char| char if char != "\n"}
     @braille_array = @file_to_array.compact
-    @divided_braille_array = @braille_array.each_slice(3).to_a
-  
+    @total_chars = @braille_array.length / 6
+    @braille_array.slice(@total_chars * 2)
+binding.pry
 
-    #you now have an array of all the elements in the braille file, you need to convert it  back to 3  arrays, then transpose that array  so the letters go back to one element with 3 arrays
+    p ["acebd"]
   end
 end
